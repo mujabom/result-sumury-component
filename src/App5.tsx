@@ -63,7 +63,6 @@ function InfoBar({ field, score }: InfoBarProps) {
         return iconmemory;
     }
   }
-  
   return (
     <div
       className={`flex flex-row ${colors[field]} bg-opacity-10 w-full p-3 justify-between rounded-lg`}
