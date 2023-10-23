@@ -11,26 +11,28 @@ type Data = {
 };
 export default function App5() {
   return (
-    <div className="md:min-h-screen bg-pale-blue justify-center flex align-middle items-center">
-
-      <div className="flex rounded-3xl md:w-[32rem] bg-white shadow-lg flex-col md:flex-row  ">
+    <div className="min-h-screen justify-center h-fit flex align-middle sm:items-center">
+      <div className="flex rounded-3xl w-full sm:w-[32rem]  bg-white shadow-custom-light flex-col sm:flex-row  ">
         <ScoreWidget />
-        <div className="px-9 py-6 flex flex-col gap-3 md:w-1/2">
+        <div className="px-5 py-6 flex flex-col gap-3 justify-between sm:w-full">
           <h4 className="font-bold text-dark-gray-blue ">Summary</h4>
           <div className="flex flex-col gap-3">
-          {data.map((item) => {
-            const data = item as Data;
-            return (
-              <InfoBar
-              key={data.category}
-                field={data.category}
-                score={data.score}
-              />
-            );
-          })}</div>
-          <button className=" rounded-3xl py-2 text-sm text-white justify-end
+            {data.map((item) => {
+              const data = item as Data;
+              return (
+                <InfoBar
+                  key={data.category}
+                  field={data.category}
+                  score={data.score}
+                />
+              );
+            })}
+          </div>
+          <button
+            className=" rounded-3xl py-2 text-sm text-white
             hover:bg-gradient-to-b from-light-slate-blue to-light-royal-blue
-          bg-dark-gray-blue font-bold w-full">
+          bg-dark-gray-blue  w-full"
+          >
             Continue
           </button>
         </div>
@@ -80,7 +82,7 @@ function InfoBar({ field, score }: InfoBarProps) {
         <img src={getIcon(field)} alt="memory icon" className="h-5" />
         <p className={`${textColors[field]} text-sm`}>{field}</p>
       </div>
-      <div className="flex flex-row gap-1">
+      <div className="flex flex-row">
         <p className="text-dark-gray-blue">{score}</p>
         <p className="text-light-lavender">/100</p>
       </div>

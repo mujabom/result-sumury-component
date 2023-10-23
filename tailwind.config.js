@@ -6,8 +6,15 @@ export default {
   ],
   theme: {
     extend: {
-      aspectRatio: {
-        '704': '0.704',
+      boxShadow: {
+        'custom-light': '10px 10px 30px rgba(0, 0, 0, 0.1)',
+      },
+      screens: {
+        'sm': '450px',
+        'md': '768px', // Change this to your desired value
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
       },
       colors: {
         'light-red': 'hsl(0, 100%, 67%)',
