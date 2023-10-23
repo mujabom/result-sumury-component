@@ -80,7 +80,7 @@ function InfoBar({ field, score }: InfoBarProps) {
     >
       <div className="flex flex-row gap-2">
         <img src={getIcon(field)} alt="memory icon" className="h-5" />
-        <p className={`${textColors[field]} text-sm`}>{field}</p>
+        <p className={`${textColors[field]} text-sm font-bold`}>{field}</p>
       </div>
       <div className="flex flex-row">
         <p className="text-dark-gray-blue">{score}</p>
