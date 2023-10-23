@@ -16,12 +16,13 @@ export default function App5() {
       <div className="flex rounded-3xl shadow-lg flex-col md:flex-row  ">
         <ScoreWidget />
         <div className="p-6 flex flex-col justify-between md:w-1/2">
-          <h4 className="font-bold text-dark-gray-blue">Summary</h4>
+          <h4 className="font-bold text-dark-gray-blue ">Summary</h4>
           <div className="flex flex-col gap-3">
           {data.map((item) => {
             const data = item as Data;
             return (
               <InfoBar
+              key={data.category}
                 field={data.category}
                 score={data.score}
               />
@@ -43,10 +44,10 @@ type InfoBarProps = {
 
 function InfoBar({ field, score }: InfoBarProps) {
   const colors = {
-    Memory: "orangey-yellow",
-    Reaction: "light-red",
-    Verbal: "green-teal",
-    Visual: "cobalt-blue",
+    Memory: "bg-orangey-yellow",
+    Reaction: "bg-light-red",
+    Verbal: "bg-green-teal",
+    Visual: "bg-cobalt-blue",
   };
   function getIcon(field: string) {
     switch (field) {
@@ -64,7 +65,7 @@ function InfoBar({ field, score }: InfoBarProps) {
   }
   return (
     <div
-      className={`flex flex-row bg-${colors[field]} bg-opacity-10 w-full p-3 justify-between rounded-lg`}
+      className={`flex flex-row ${colors[field]} bg-opacity-10 w-full p-3 justify-between rounded-lg`}
     >
       <div className="flex flex-row gap-2">
         <img src={getIcon(field)} alt="memory icon" className="" />
