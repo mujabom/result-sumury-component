@@ -1,14 +1,16 @@
+import { z } from "zod";
 import ScoreWidget from "./ScoreWidget";
 import iconmemory from "./asset/images/icon-memory.svg";
 import iconnreaction from "./asset/images/icon-reaction.svg";
 import iconverbal from "./asset/images/icon-verbal.svg";
 import iconvisual from "./asset/images/icon-visual.svg";
 import data from "./data.json";
-type Data = {
-  category: "Memory" | "Reaction" | "Verbal" | "Visual";
-  icon: string;
-  score: number;
-};
+const DatatSchema = z.object({
+  category: z.enum(["Memory", "Reaction", "Verbal", "Visual"]),
+  icon: z.string(),
+  score: z.coerce.number(),
+});
+const DataArray = z.array(DatatSchema);
 export default function App5() {
   return (
     <div className="min-h-screen justify-center h-fit flex align-middle sm:items-center">
@@ -17,13 +19,13 @@ export default function App5() {
         <div className="px-5 py-6 flex flex-col gap-3 justify-between sm:w-full">
           <h4 className="font-bold text-dark-gray-blue ">Summary</h4>
           <div className="flex flex-col gap-3">
-            {data.map((item) => {
-              const data = item as Data;
+            {DataArray.parse(data).map((item) => {
+             
               return (
                 <InfoBar
-                  key={data.category}
-                  field={data.category}
-                  score={data.score}
+                  key={item.category}
+                  field={item.category}
+                  score={item.score}
                 />
               );
             })}
