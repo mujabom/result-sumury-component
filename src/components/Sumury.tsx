@@ -13,9 +13,9 @@ export default function Sumury() {
   });
   const DataArray = z.array(DatatSchema);
   return (
-    <div className="px-5 py-6 flex flex-col gap-3 justify-between sm:w-full">
-      <h4 className="font-bold text-dark-gray-blue ">Summary</h4>
-      <div className="flex flex-col gap-3">
+    <div>
+      <h4>Summary</h4>
+      <div>
         {DataArray.parse(data).map((item) => {
           return (
             <InfoBar
@@ -26,11 +26,7 @@ export default function Sumury() {
           );
         })}
       </div>
-      <button
-        className=" rounded-3xl py-2 text-sm text-white
-  hover:bg-gradient-to-b from-light-slate-blue to-light-royal-blue
-bg-dark-gray-blue  w-full"
-      >
+      <button>
         Continue
       </button>
     </div>
@@ -72,15 +68,15 @@ function InfoBar({ field, score }: InfoBarProps) {
   };
   return (
     <div
-      className={`flex flex-row ${colors[field]} bg-opacity-10 w-full p-2 justify-between rounded-lg`}
+      className={`${colors[field]} bg-opacity-5`}
     >
-      <div className="flex flex-row gap-2">
-        <img src={getIcon(field)} alt="memory icon" className="h-5" />
-        <p className={`${textColors[field]} text-sm font-bold`}>{field}</p>
+      <div >
+        <img src={getIcon(field)} alt="memory icon" />
+        <p className={`${textColors[field]}`}>{field}</p>
       </div>
-      <div className="flex flex-row gap-1">
-        <p className="text-dark-gray-blue">{score}</p>
-        <p className="text-light-lavender">/100</p>
+      <div >
+        <p >{score}</p>
+        <p >/100</p>
       </div>
     </div>
   );
