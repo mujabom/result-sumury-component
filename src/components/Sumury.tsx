@@ -75,9 +75,9 @@ function InfoBar({ field, score }: InfoBarProps) {
         <img src={getIcon(field)} alt="memory icon" />
         <p className={`${textColors[field]} font-bold`}>{field}</p>
       </div>
-      <div className="flex flex-wrap gap-1 items-center">
+      <div className="flex flex-wrap gap-1 font-bold text-dark-gray-blue items-center">
         <p>{score}</p>
-        <p className="text-light-lavender">/100</p>
+        <p className="opacity-50">/100</p>
       </div>
     </div>
   );
