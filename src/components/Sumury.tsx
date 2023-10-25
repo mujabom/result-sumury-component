@@ -13,8 +13,8 @@ export default function Sumury() {
   });
   const DataArray = z.array(DatatSchema);
   return (
-    <div className="py-10 px-6 grid gap-8 m-o">
-      <h4 className="text-dark-gray-blue font-bold">Summary</h4>
+    <div className="p-10 grid gap-8 m-o">
+      <h4 className="text-dark-gray-blue font-bold text-2xl">Summary</h4>
       <div className="grid gap-4 items-start">
         {DataArray.parse(data).map((item) => {
           return (
@@ -69,11 +69,11 @@ function InfoBar({ field, score }: InfoBarProps) {
   return (
     <div
       className={`${colors[field]} 
-      bg-opacity-5 flex justify-between justify-items-center items-center rounded-lg p-4`}
+      bg-opacity-10 flex justify-between justify-items-center items-center rounded-lg p-4`}
     >
       <div className="flex gap-4">
         <img src={getIcon(field)} alt="memory icon" />
-        <p className={`${textColors[field]}`}>{field}</p>
+        <p className={`${textColors[field]} font-bold`}>{field}</p>
       </div>
       <div className="flex flex-wrap gap-1 items-center">
         <p>{score}</p>
