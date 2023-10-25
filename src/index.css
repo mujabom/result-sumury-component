@@ -7,4 +7,6 @@
 body {
   font-family: "Hanken Grotesk", sans-serif;
   font-size: 18px;
+  box-sizing: border-box;
+  line-height: 1;
 }
